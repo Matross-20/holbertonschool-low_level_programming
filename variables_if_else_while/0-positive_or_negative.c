@@ -3,7 +3,7 @@
 #include <stdio.h>
 /**
 *main- determines whether a random number generated is negative or positive
-*return-end of the function
+*return: end of the function
 */
 int main(void)
 {

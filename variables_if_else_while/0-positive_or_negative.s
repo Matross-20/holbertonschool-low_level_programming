@@ -1,14 +1,12 @@
 	.file	"0-positive_or_negative.c"
 	.text
 	.section	.rodata
-	.align 8
 .LC0:
-	.string	"The number is greater than 0 is positive"
+	.string	"%d is positive\n"
 .LC1:
-	.string	"The number is zero"
-	.align 8
+	.string	"%d is zero\n"
 .LC2:
-	.string	"The number is less than 0 is negative"
+	.string	"%d is negative\n"
 	.text
 	.globl	main
 	.type	main, @function
@@ -31,6 +29,8 @@ main:
 	movl	%eax, -4(%rbp)
 	cmpl	$0, -4(%rbp)
 	jle	.L2
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
 	leaq	.LC0(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
@@ -39,6 +39,8 @@ main:
 .L2:
 	cmpl	$0, -4(%rbp)
 	jne	.L3
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
 	leaq	.LC1(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
@@ -46,6 +48,8 @@ main:
 .L3:
 	cmpl	$0, -4(%rbp)
 	jns	.L4
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
 	leaq	.LC2(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax

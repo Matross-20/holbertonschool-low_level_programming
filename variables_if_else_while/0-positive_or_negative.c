@@ -2,9 +2,9 @@
 #include <time.h>
 #include <stdio.h>
 /**
-*main-beginning of the code
-*return-end product of code 
-*/
+ *main-beginning of the code
+ *return-end product of code 
+ */
 int main(void)
 {
 	int n;

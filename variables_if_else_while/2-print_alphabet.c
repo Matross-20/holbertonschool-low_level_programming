@@ -1,12 +1,11 @@
 #include <stdio.h>
 /**
  * main - the alphabet in lowercase
- * Return: end product of the code 
+ * Return: end product of the code
  */
 int main(void)
 {
-char letter ='a';
-	       	
+char letter = 'a';  	
 while (letter <= 'z')	
 {
 putchar (letter);

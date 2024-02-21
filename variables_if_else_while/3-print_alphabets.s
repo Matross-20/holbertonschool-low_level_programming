@@ -13,6 +13,7 @@ main:
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
 	movb	$97, -1(%rbp)
+	movb	$65, -2(%rbp)
 	nop
 .L2:
 	cmpb	$122, -1(%rbp)
@@ -23,7 +24,6 @@ main:
 	movzbl	-1(%rbp), %eax
 	addl	$1, %eax
 	movb	%al, -1(%rbp)
-	movb	$65, -2(%rbp)
 	jmp	.L3
 .L4:
 	movsbl	-2(%rbp), %eax

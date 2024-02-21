@@ -38,23 +38,22 @@ main:
 	jmp	.L3
 .L2:
 	cmpl	$0, -4(%rbp)
-	jne	.L3
+	jne	.L4
 	movl	-4(%rbp), %eax
 	movl	%eax, %esi
 	leaq	.LC1(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-.L3:
-	cmpl	$0, -4(%rbp)
-	jns	.L4
+	jmp	.L3
+.L4:
 	movl	-4(%rbp), %eax
 	movl	%eax, %esi
 	leaq	.LC2(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-.L4:
+.L3:
 	movl	$0, %eax
 	leave
 	.cfi_def_cfa 7, 8

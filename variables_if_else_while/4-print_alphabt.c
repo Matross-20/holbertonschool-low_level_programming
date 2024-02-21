@@ -1,5 +1,5 @@
 #include <stdio.h>
-65;6800;1c/**
+/**
  * main - print alphabets without e and q
  * Return: string
  */

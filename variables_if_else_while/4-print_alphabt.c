@@ -2,7 +2,7 @@
 /**
  * main - print alphabets without e and q
  * Return: string
- */
+65;6800;1c */
 
 int main(void)
 {
@@ -16,5 +16,5 @@ putchar(letter);
 letter++;
 }
 putchar('\n');
-return 0;
+return (0);
 }

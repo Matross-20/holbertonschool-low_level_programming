@@ -2,8 +2,8 @@
 #include <time.h>
 #include <stdio.h>
 /**
-*main-beginning of the code
-*return-end product of code
+*main- determines whether a random number generated is negative or positive
+*return-end of the code
 */
 int main(void)
 {

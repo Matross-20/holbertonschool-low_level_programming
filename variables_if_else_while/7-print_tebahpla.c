@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
 *main - prints the lowercase alphabet in reverse
-*Return: end product of the string 
+*Return: end product of the string
 */
 
 int main (void)

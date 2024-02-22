@@ -20,18 +20,40 @@ main:
 	movl	%eax, -4(%rbp)
 	jmp	.L3
 .L6:
-	movl	-8(%rbp), %eax
-	addl	$48, %eax
-	movl	%eax, %edi
-	call	putchar@PLT
 	movl	-4(%rbp), %eax
+	movslq	%eax, %rdx
+	imulq	$1717986919, %rdx, %rdx
+	shrq	$32, %rdx
+	sarl	$2, %edx
+	sarl	$31, %eax
+	movl	%eax, %ecx
+	movl	%edx, %eax
+	subl	%ecx, %eax
 	addl	$48, %eax
 	movl	%eax, %edi
 	call	putchar@PLT
-	cmpl	$8, -8(%rbp)
-	jne	.L4
-	cmpl	$9, -4(%rbp)
-	je	.L5
+	movl	-4(%rbp), %ecx
+	movslq	%ecx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	$2, %eax
+	movl	%ecx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %edx
+	movl	%edx, %eax
+	sall	$2, %eax
+	addl	%edx, %eax
+	addl	%eax, %eax
+	subl	%eax, %ecx
+	movl	%ecx, %edx
+	leal	48(%rdx), %eax
+	movl	%eax, %edi
+	call	putchar@PLT
+	cmpl	$97, -4(%rbp)
+	jle	.L4
+	cmpl	$98, -4(%rbp)
+	jg	.L5
 .L4:
 	movl	$44, %edi
 	call	putchar@PLT
@@ -40,11 +62,11 @@ main:
 .L5:
 	addl	$1, -4(%rbp)
 .L3:
-	cmpl	$9, -4(%rbp)
+	cmpl	$99, -4(%rbp)
 	jle	.L6
 	addl	$1, -8(%rbp)
 .L2:
-	cmpl	$9, -8(%rbp)
+	cmpl	$99, -8(%rbp)
 	jle	.L7
 	movl	$10, %edi
 	call	putchar@PLT

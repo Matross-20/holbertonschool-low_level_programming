@@ -4,26 +4,24 @@
  *main - prints all combinations of double digits
  *Return: end product of the string
  */
-
-int main(void) 
+int main(void)
 {
-for (int i = 0; i < 10; i++) 
+int num;
+int no;
+for (num = 0; num <= 99; num++)
 {
-for (int j = i + 1; j < 10; j++) 
-{	
-putchar('0' + i);
-putchar('0' + j);
-
-if (i != 8 || j != 9) 
+for (no = num + 1; no <= 99; no++)
+{
+putchar((no / 10) + '0');
+putchar((no % 10) + '0');
+if (no < 98 || no < 99)
 {
 putchar(',');
 putchar(' ');
 }
 }
 }
-
 putchar('\n');
-
 return (0);
 }
 

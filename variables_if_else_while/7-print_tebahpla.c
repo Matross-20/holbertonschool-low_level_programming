@@ -4,7 +4,7 @@
 *Return: end product of the string
 */
 
-int main (void)
+int main(void)
 {
 char current_char = 'z';
 while (current_char >= 'a')

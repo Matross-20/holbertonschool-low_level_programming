@@ -5,20 +5,17 @@
  */
 int main(void)
 {
-char current_char;
+	char num = '0';
+	char alp;
 
-for (int i = 0; i < 10; i++)
-{
-current_char = '0' + i;
-putchar(current_char);
-}
+	if (num <= '9')
+	{
+		for (num = '0'; num <= '9'; num++)
+			putchar(num);
 
-for (int i = 0; i < 6; i++)
-{
-current_char = 'a' + i;
-putchar(current_char);
-}
-putchar('\n');
-
-return (0);
+		for (alp = 'a'; alp <= 'f'; alp++)
+			putchar(alp);
+	}
+	putchar('\n');
+	return (0);
 }

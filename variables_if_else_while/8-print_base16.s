@@ -12,32 +12,34 @@ main:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
-	movl	$0, -8(%rbp)
-	jmp	.L2
-.L3:
-	movl	-8(%rbp), %eax
-	addl	$48, %eax
-	movb	%al, -9(%rbp)
-	movsbl	-9(%rbp), %eax
-	movl	%eax, %edi
-	call	putchar@PLT
-	addl	$1, -8(%rbp)
-.L2:
-	cmpl	$9, -8(%rbp)
-	jle	.L3
-	movl	$0, -4(%rbp)
-	jmp	.L4
-.L5:
-	movl	-4(%rbp), %eax
-	addl	$97, %eax
-	movb	%al, -9(%rbp)
-	movsbl	-9(%rbp), %eax
-	movl	%eax, %edi
-	call	putchar@PLT
-	addl	$1, -4(%rbp)
+	movb	$48, -2(%rbp)
+	cmpb	$57, -2(%rbp)
+	jg	.L2
+	movb	$48, -2(%rbp)
+	jmp	.L3
 .L4:
-	cmpl	$5, -4(%rbp)
-	jle	.L5
+	movsbl	-2(%rbp), %eax
+	movl	%eax, %edi
+	call	putchar@PLT
+	movzbl	-2(%rbp), %eax
+	addl	$1, %eax
+	movb	%al, -2(%rbp)
+.L3:
+	cmpb	$57, -2(%rbp)
+	jle	.L4
+	movb	$97, -1(%rbp)
+	jmp	.L5
+.L6:
+	movsbl	-1(%rbp), %eax
+	movl	%eax, %edi
+	call	putchar@PLT
+	movzbl	-1(%rbp), %eax
+	addl	$1, %eax
+	movb	%al, -1(%rbp)
+.L5:
+	cmpb	$102, -1(%rbp)
+	jle	.L6
+.L2:
 	movl	$10, %edi
 	call	putchar@PLT
 	movl	$0, %eax

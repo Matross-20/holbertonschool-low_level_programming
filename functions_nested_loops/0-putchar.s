@@ -1,9 +1,5 @@
 	.file	"0-putchar.c"
 	.text
-	.section	.rodata
-.LC0:
-	.string	"_putchar"
-	.text
 	.globl	main
 	.type	main, @function
 main:
@@ -15,9 +11,24 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	leaq	.LC0(%rip), %rax
-	movq	%rax, %rdi
-	call	puts@PLT
+	movl	$95, %edi
+	call	_putchar@PLT
+	movl	$112, %edi
+	call	_putchar@PLT
+	movl	$117, %edi
+	call	_putchar@PLT
+	movl	$116, %edi
+	call	_putchar@PLT
+	movl	$99, %edi
+	call	_putchar@PLT
+	movl	$104, %edi
+	call	_putchar@PLT
+	movl	$97, %edi
+	call	_putchar@PLT
+	movl	$114, %edi
+	call	_putchar@PLT
+	movl	$10, %edi
+	call	_putchar@PLT
 	movl	$0, %eax
 	popq	%rbp
 	.cfi_def_cfa 7, 8

@@ -15,4 +15,4 @@ current_char--;
 putchar('\n');
 
 return (0);
-}  
+}

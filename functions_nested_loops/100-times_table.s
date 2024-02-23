@@ -1,15 +1,5 @@
 	.file	"100-times_table.c"
 	.text
-	.section	.rodata
-.LC0:
-	.string	", "
-.LC1:
-	.string	"  %d"
-.LC2:
-	.string	" %d"
-.LC3:
-	.string	"%d"
-	.text
 	.globl	print_times_table
 	.type	print_times_table, @function
 print_times_table:
@@ -24,97 +14,169 @@ print_times_table:
 	subq	$32, %rsp
 	movl	%edi, -20(%rbp)
 	cmpl	$0, -20(%rbp)
-	js	.L13
+	js	.L10
 	cmpl	$15, -20(%rbp)
-	jg	.L13
+	jg	.L10
 	movl	$0, -12(%rbp)
-	jmp	.L5
-.L12:
-	movl	$0, -8(%rbp)
-	jmp	.L6
-.L11:
+	jmp	.L3
+.L9:
+	movl	$48, %edi
+	call	_putchar@PLT
+	movl	$1, -8(%rbp)
+	jmp	.L4
+.L8:
 	movl	-12(%rbp), %eax
 	imull	-8(%rbp), %eax
 	movl	%eax, -4(%rbp)
-	cmpl	$0, -8(%rbp)
-	jle	.L7
-	leaq	.LC0(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-.L7:
+	movl	$44, %edi
+	call	_putchar@PLT
+	movl	$32, %edi
+	call	_putchar@PLT
 	cmpl	$9, -4(%rbp)
-	jg	.L8
+	jg	.L5
+	movl	$32, %edi
+	call	_putchar@PLT
+	movl	$32, %edi
+	call	_putchar@PLT
 	movl	-4(%rbp), %eax
-	movl	%eax, %esi
-	leaq	.LC1(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	jmp	.L9
-.L8:
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	jmp	.L6
+.L5:
 	cmpl	$99, -4(%rbp)
-	jg	.L10
+	jg	.L7
+	movl	$32, %edi
+	call	_putchar@PLT
 	movl	-4(%rbp), %eax
-	movl	%eax, %esi
-	leaq	.LC2(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	jmp	.L9
-.L10:
+	movslq	%eax, %rdx
+	imulq	$1717986919, %rdx, %rdx
+	shrq	$32, %rdx
+	sarl	$2, %edx
+	sarl	$31, %eax
+	movl	%eax, %ecx
+	movl	%edx, %eax
+	subl	%ecx, %eax
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	movl	-4(%rbp), %edx
+	movslq	%edx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	$2, %eax
+	movl	%edx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
+	sall	$2, %eax
+	addl	%ecx, %eax
+	addl	%eax, %eax
+	movl	%edx, %ecx
+	subl	%eax, %ecx
+	movl	%ecx, %eax
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	jmp	.L6
+.L7:
 	movl	-4(%rbp), %eax
-	movl	%eax, %esi
-	leaq	.LC3(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-.L9:
-	addl	$1, -8(%rbp)
+	movslq	%eax, %rdx
+	imulq	$1374389535, %rdx, %rdx
+	shrq	$32, %rdx
+	sarl	$5, %edx
+	sarl	$31, %eax
+	subl	%eax, %edx
+	movslq	%edx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	$2, %eax
+	movl	%edx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
+	sall	$2, %eax
+	addl	%ecx, %eax
+	addl	%eax, %eax
+	movl	%edx, %ecx
+	subl	%eax, %ecx
+	movl	%ecx, %eax
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	movl	-4(%rbp), %eax
+	movslq	%eax, %rdx
+	imulq	$1717986919, %rdx, %rdx
+	shrq	$32, %rdx
+	sarl	$2, %edx
+	sarl	$31, %eax
+	subl	%eax, %edx
+	movslq	%edx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	$2, %eax
+	movl	%edx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
+	sall	$2, %eax
+	addl	%ecx, %eax
+	addl	%eax, %eax
+	movl	%edx, %ecx
+	subl	%eax, %ecx
+	movl	%ecx, %eax
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	movl	-4(%rbp), %edx
+	movslq	%edx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	$2, %eax
+	movl	%edx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
+	sall	$2, %eax
+	addl	%ecx, %eax
+	addl	%eax, %eax
+	movl	%edx, %ecx
+	subl	%eax, %ecx
+	movl	%ecx, %eax
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
 .L6:
+	addl	$1, -8(%rbp)
+.L4:
 	movl	-8(%rbp), %eax
 	cmpl	-20(%rbp), %eax
-	jle	.L11
+	jle	.L8
 	movl	$10, %edi
-	call	putchar@PLT
+	call	_putchar@PLT
 	addl	$1, -12(%rbp)
-.L5:
+.L3:
 	movl	-12(%rbp), %eax
 	cmpl	-20(%rbp), %eax
-	jle	.L12
-	jmp	.L1
-.L13:
+	jle	.L9
+.L10:
 	nop
-.L1:
 	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
 .LFE0:
 	.size	print_times_table, .-print_times_table
-	.globl	main
-	.type	main, @function
-main:
-.LFB1:
-	.cfi_startproc
-	endbr64
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	movl	$9, -4(%rbp)
-	movl	-4(%rbp), %eax
-	movl	%eax, %edi
-	call	print_times_table
-	movl	$0, %eax
-	leave
-	.cfi_def_cfa 7, 8
-	ret
-	.cfi_endproc
-.LFE1:
-	.size	main, .-main
 	.ident	"GCC: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"

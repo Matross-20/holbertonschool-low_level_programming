@@ -12,7 +12,15 @@ _islower:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	movl	%edi, -4(%rbp)
+	cmpl	$96, -4(%rbp)
+	jle	.L2
+	cmpl	$122, -4(%rbp)
+	jg	.L2
+	movl	$1, %eax
+	jmp	.L3
+.L2:
 	movl	$0, %eax
+.L3:
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret

@@ -1,6 +1,18 @@
 #include "main.h"
-int _islower(int c) 
-{
-return (c >= 'a' && c <= 'z') ? 0 : 0;
-}
 
+/**
+ *_islower - function begins
+ *Return: end of function
+ *@c: int variable name
+*/
+int _islower(int c)
+{
+if (c >= 'a' && c <= 'z')
+{
+return (1);
+}
+else
+{
+return (0);
+}
+}

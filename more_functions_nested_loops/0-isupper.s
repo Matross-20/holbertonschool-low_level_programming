@@ -15,20 +15,20 @@ _isupper:
 	movb	$65, -5(%rbp)
 	movl	$48, -4(%rbp)
 	jmp	.L2
-.L4:
+.L5:
 	movsbl	-5(%rbp), %eax
 	cmpl	%eax, -20(%rbp)
-	jne	.L2
+	jne	.L3
 	movl	$1, -4(%rbp)
-	jmp	.L3
-.L2:
-	movzbl	-5(%rbp), %eax
-	movl	%eax, %edx
-	addl	$1, %edx
-	movb	%dl, -5(%rbp)
-	testb	%al, %al
-	jne	.L4
+	jmp	.L4
 .L3:
+	movzbl	-5(%rbp), %eax
+	addl	$1, %eax
+	movb	%al, -5(%rbp)
+.L2:
+	cmpb	$90, -5(%rbp)
+	jle	.L5
+.L4:
 	movl	-4(%rbp), %eax
 	popq	%rbp
 	.cfi_def_cfa 7, 8

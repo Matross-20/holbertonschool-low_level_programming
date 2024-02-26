@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  *main -  checks for uppercase character
  *@ c: input character
@@ -7,10 +7,10 @@
 
 int _isupper(int c)
 {
-	char uppercase = 'A'
-	int isupper = '0'
+	char uppercase = 'A';
+	int isupper = '0';
 
-        for (; uppercase <= 'Z';uppercase++);
+        for (; uppercase <= 'Z';uppercase++)
         {
 		if (c == uppercase)
 		{

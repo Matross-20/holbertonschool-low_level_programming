@@ -16,4 +16,4 @@ void print_numbers(void)
 		_putchar(cnum);
 	}
 	_putchar('\n');
-}	
+}

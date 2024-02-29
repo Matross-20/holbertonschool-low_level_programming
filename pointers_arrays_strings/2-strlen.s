@@ -17,9 +17,10 @@ _strlen:
 .L3:
 	addl	$1, -4(%rbp)
 .L2:
+	movl	-4(%rbp), %eax
+	movslq	%eax, %rdx
 	movq	-24(%rbp), %rax
-	leaq	1(%rax), %rdx
-	movq	%rdx, -24(%rbp)
+	addq	%rdx, %rax
 	movzbl	(%rax), %eax
 	testb	%al, %al
 	jne	.L3

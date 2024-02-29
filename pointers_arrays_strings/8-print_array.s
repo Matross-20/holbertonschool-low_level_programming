@@ -2,9 +2,9 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"%d"
+	.string	"%d, "
 .LC1:
-	.string	", "
+	.string	"%d"
 	.text
 	.globl	print_array
 	.type	print_array, @function
@@ -22,7 +22,11 @@ print_array:
 	movl	%esi, -28(%rbp)
 	movl	$0, -4(%rbp)
 	jmp	.L2
-.L4:
+.L5:
+	movl	-28(%rbp), %eax
+	subl	$1, %eax
+	cmpl	%eax, -4(%rbp)
+	je	.L3
 	movl	-4(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -34,22 +38,27 @@ print_array:
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-	movl	-28(%rbp), %eax
-	subl	$1, %eax
-	cmpl	%eax, -4(%rbp)
-	jge	.L3
+	jmp	.L4
+.L3:
+	movl	-4(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	movq	-24(%rbp), %rax
+	addq	%rdx, %rax
+	movl	(%rax), %eax
+	movl	%eax, %esi
 	leaq	.LC1(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-.L3:
+.L4:
 	addl	$1, -4(%rbp)
 .L2:
 	movl	-4(%rbp), %eax
 	cmpl	-28(%rbp), %eax
-	jl	.L4
+	jl	.L5
 	movl	$10, %edi
-	call	_putchar@PLT
+	call	putchar@PLT
 	nop
 	leave
 	.cfi_def_cfa 7, 8

@@ -23,9 +23,9 @@ nums = va_arg(ap, int);
 printf("%d", nums);
 if (separator == NULL)
 continue;
-if (i < n -1)
-printf("%s", separator);       
-}	       
+if (i < n - 1)
+printf("%s", separator);
+}
 printf("\n");
 va_end(ap);
-}    
+}

@@ -2,8 +2,8 @@
 #include <string.h>
 
 /**
- *add_node-end - A function that adds a node to the end of linked list 
- *@head: pointer to a list_t pointer that points to the head struct 
+ *add_node-end - A function that adds a node to the end of linked list
+ *@head: pointer to a list_t pointer that points to the head struct
  *@str: string to add as node
  *Return: pointer to new element of list, NULL on failure
  */
